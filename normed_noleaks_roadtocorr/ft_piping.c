@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:15:23 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/05 17:33:11 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/05 17:45:44 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static int	ft_exec_pipe(t_env **env, t_cmd **cmd)
 	if (ft_is_builtin((*cmd)->argv[0]))
 	{
 		ft_exec_builtinpipe(env, cmd);
-		ft_free_list_cmd(cmd);
 		return (g_exit_status);
 	}
 	path = ft_get_env(*env, "PATH", &env_path);
