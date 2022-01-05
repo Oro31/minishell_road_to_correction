@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:15:23 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/05 17:26:36 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/05 17:57:14 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char	*ft_get_env(t_env *env, char *name, int *env_path)
 {
 	t_env	*tmp;
 
-	*env_path = 0;
+	if (env_path)
+		*env_path = 0;
 	tmp = NULL;
 	if (!env)
 		return (NULL);
@@ -43,6 +44,7 @@ char	*ft_get_env(t_env *env, char *name, int *env_path)
 		tmp = tmp->nxt;
 	if (!tmp)
 		return (NULL);
-	*env_path = 1;
+	if (env_path)
+		*env_path = 1;
 	return (ft_str_copy_nofree(tmp->value));
 }
